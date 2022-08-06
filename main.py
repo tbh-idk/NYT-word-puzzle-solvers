@@ -7,9 +7,9 @@
           - LETTER BOXED         
 '''''''''''''''''''''''''''''''''
 
-from wordlesolver import *
-from spellingBee import *
-from letterBoxed import *
+from solvers.wordlesolver import *
+from solvers.spellingBee import *
+from solvers.letterBoxed import *
 
 ##    new = wordle()
 ##
