@@ -36,9 +36,6 @@ class unbox:
         for w in wl:
             if w[-1] == '\n': wl[wl.index(w)] = w[:-1]
 
-        #print(wl)
-
-        #unbox.new(self)
 
     def remove(self, *words):
         for w in self.wl:
