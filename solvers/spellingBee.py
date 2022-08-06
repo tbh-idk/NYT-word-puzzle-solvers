@@ -60,7 +60,7 @@ class hive:
 
         elif start and length:
             for w in self.wordlist:
-                if w in self.wordlist and len(w) == length:
+                if w.startswith(start) and len(w) == length:
                     print(w)
 
     def pangram(self):
