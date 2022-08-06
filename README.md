@@ -1,5 +1,7 @@
 # NYT word puzzle solvers
-Helps suggest words and solutions for Wordle, Spelling Bee, and Letter Boxed
+Helps suggest words and solutions for Wordle, Spelling Bee, and Letter Boxed.
+
+All these would be done in the IDLE shell
 
 ## Wordle
 
