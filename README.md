@@ -34,6 +34,7 @@ ex.
   ```
   
   - *these two methods are similar, but keep in mind that the words suggested from the 'more' function may include letters that are in the worng place or not in the word*
+  - *find a full ordered list at ```self.s``` and ```self.m```*
 
 ## Spelling Bee
 
