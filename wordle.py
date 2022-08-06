@@ -1,35 +1,11 @@
 
 '''
-wordle solver:
-
+wordle solver
 '''
 
-##import requests
-##from bs4 import BeautifulSoup
 from random import randint as random
 import math as m
 
-'''''''''''''''''''''
-#   old word list   #
-'''''''''''''''''''''
-##page = requests.get('https://www.mit.edu/~ecprice/wordlist.10000')
-##soup = BeautifulSoup(page.content, 'html.parser')
-##
-############################
-##
-##wordlistAll = str(soup).split('\n') # type list
-##wordlist = []
-##
-##for x in wordlistAll:
-##    if len(x) == 5:
-##        wordlist.append(x)
-##
-########################################
-
-
-'''''''''''''''''''''
-#   new word list   #
-'''''''''''''''''''''
 wordlist = []
 
 wordlistAll = open('/usr/share/dict/words')
@@ -147,49 +123,12 @@ class wordle:
 
     def suggestion(self,r=False):
         #global rankedWords, frequency
-        if False or r: # len(self.possible) >= 1000
+        if r:
             print(self.possible[random(0,len(self.possible)-1)])
         else:
-            '''
-            make new version:
-              - [x] suggest words that have common letters
-              - [ ] suggest words that have more unique letters
-            '''
+            
             letterScore = [*'etaoinshrdlucmfwypvbgkjqxz'] # not weighted
-
-            rankedWords = [('eeeee',0),('zzzzz',m.inf)] #('zzzzz',m.inf)
-
-            ##
-##            for x in self.possible:
-##                #print(rankedWords)
-##                score = 0
-##                for l in x:
-##                    if self.template[x.index(l)] == '*':
-##                        score += letterScore.index(l)
-##                for n in rankedWords[:]:
-##                    if score < n[1]:
-##                        rankedWords.insert(rankedWords.index(n)-1,(x, score))
-##                        break
-
-            ##
-                    
-##            for x in self.possible:
-##                score = []
-##                for l in x:
-##                    if l not in self.green:
-##                        score.append(l)
-##                score = list(set(score))
-##
-##                for n in score:
-##                    score[score.index(n)] = letterScore.index(n)
-##
-##                score = sum(score)
-##
-##                for n in rankedWords[:]:
-##                    if score < n[1]:
-##                        rankedWords.insert(rankedWords.index(n)-1,(x, score))
-##                        break
-            ##
+            
             rankedWords = {}
 
             frequency = {}
@@ -220,7 +159,6 @@ class wordle:
             rankedWords = dict(sorted(rankedWords.items(), key=lambda item: item[1]))
                     
 
-            #print('\n'.join(x for x in list(rankedWords)[-5:]))
             sug = list(reversed(list(rankedWords)))
             print('\n'.join(f'{x} : {rankedWords[x]}' for x in sug[:5]))
             self.rw = rankedWords#
@@ -232,7 +170,7 @@ class wordle:
             for l in w:
                 if l in frequency: frequency[l] += 1
                 else: frequency[l] = 1
-        print(frequency)#
+        print(frequency)
         rankedWords = {}
         for x in wordlist:
             w = ''.join(l for l in set(x))
@@ -245,7 +183,3 @@ class wordle:
         print('\n'.join(f'{x} : {rankedWords[x]}' for x in list(reversed(list(rankedWords)))[:5]))
         self.m = list(reversed(list(rankedWords)))
         
-                
-            
-
-            
